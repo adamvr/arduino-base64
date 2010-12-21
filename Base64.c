@@ -93,7 +93,20 @@ int base64_decode(char * output, char * input, int inputLen) {
 	return decLen;
 }
 
+int base64_enc_len(int plainLen) {
+	int n = plainLen;
+	return (n + 2 - ((n + 2) % 3)) / 3 * 4;
+}
 
+int base64_dec_len(char * input, int inputLen) {
+	int i = 0;
+	int numEq = 0;
+	for(i = inputLen - 1; input[i] == '='; i--) {
+		numEq++;
+	}
+
+	return ((6 * inputLen) / 8) - numEq;
+}
 
 inline void a3_to_a4(unsigned char * a4, unsigned char * a3) {
 	a4[0] = (a3[0] & 0xfc) >> 2;
