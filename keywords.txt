@@ -7,7 +7,7 @@
 #######################################
 
 # I WANT BASE64.h HIGHLIGHTED, DAMMIT!
-Base64
+Base64		KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
