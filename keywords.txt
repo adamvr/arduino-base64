@@ -6,6 +6,9 @@
 # Datatypes (KEYWORD1)
 #######################################
 
+# I WANT BASE64.h HIGHLIGHTED, DAMMIT!
+Base64
+
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
