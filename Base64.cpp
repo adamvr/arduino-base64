@@ -2,7 +2,7 @@
 
 const char b64_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		"abcdefghijklmnopqrstuvwxyz"
-		"01234567890/+";
+		"01234567890+/";
 
 /* 'Private' declarations */
 inline void a3_to_a4(unsigned char * a4, unsigned char * a3);
