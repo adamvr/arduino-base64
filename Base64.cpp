@@ -1,5 +1,9 @@
 #include "Base64.h"
 
+const char b64_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		"abcdefghijklmnopqrstuvwxyz"
+		"0123456789+/";
+
 /* 'Private' declarations */
 inline void a3_to_a4(unsigned char * a4, unsigned char * a3);
 inline void a4_to_a3(unsigned char * a3, unsigned char * a4);
