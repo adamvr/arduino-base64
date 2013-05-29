@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2013 Adam Rudd.
+ * See LICENSE for more information
+ */
 #ifndef _BASE64_H
 #define _BASE64_H
 
