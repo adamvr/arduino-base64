@@ -27,7 +27,7 @@ void setup()
   
   // encoding
   char input[] = "Hello world";
-  int inputLen = sizeof(input);
+  int inputLen = sizeof(input)-1;
   
   int encodedLen = base64_enc_len(inputLen);
   char encoded[encodedLen];
