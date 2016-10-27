@@ -1,14 +1,14 @@
 #include "Base64.h"
 
 #if defined( __AVR__ )
-    #include <avr/pgmspace.h>
+	#include <avr/pgmspace.h>
 #elif defined( ESP8266 ) // ESP32 should work here too
-    #include <pgmspace.h>
+	#include <pgmspace.h>
 #elif defined( __arm__ )
 	#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 	#define PROGMEM const
 #else
-    #pragma message("Unknown Architecture. Using compatibility fallback for pgmspace") 
+	#pragma message("Unknown Architecture. Using compatibility fallback for pgmspace") 
 	#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 	#define PROGMEM const
 #endif
