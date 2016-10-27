@@ -1,5 +1,18 @@
 #include "Base64.h"
-#include <avr/pgmspace.h>
+
+#if defined( __AVR__ )
+    #include <avr/pgmspace.h>
+#elif defined( ESP8266 ) // ESP32 should work here too
+    #include <pgmspace.h>
+#elif defined( __arm__ )
+	#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
+	#define PROGMEM const
+#else
+    #pragma message("Unknown Architecture. Using compatibility fallback for pgmspace") 
+	#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
+	#define PROGMEM const
+#endif
+
 const char PROGMEM b64_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		"abcdefghijklmnopqrstuvwxyz"
 		"0123456789+/";
