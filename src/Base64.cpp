@@ -1,9 +1,16 @@
 #include "Base64.h"
+#ifndef PARTICLE
 #include <avr/pgmspace.h>
 const char PROGMEM b64_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		"abcdefghijklmnopqrstuvwxyz"
 		"0123456789+/";
+#else
+const char b64_alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		"abcdefghijklmnopqrstuvwxyz"
+		"0123456789+/";
 
+#define pgm_read_byte(address_short) (*address_short)
+#endif
 /* 'Private' declarations */
 inline void a3_to_a4(unsigned char * a4, unsigned char * a3);
 inline void a4_to_a3(unsigned char * a3, unsigned char * a4);
