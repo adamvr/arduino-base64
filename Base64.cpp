@@ -94,8 +94,8 @@ int base64_decode(char * output, char * input, int inputLen) {
 }
 
 int base64_enc_len(int plainLen) {
-	int n = plainLen;
-	return (n + 2 - ((n + 2) % 3)) / 3 * 4;
+	int numWholeOrPartialInputBlocks = (sourceLength + 2) / 3;
+	return numWholeOrPartialInputBlocks * 4;
 }
 
 int base64_dec_len(char * input, int inputLen) {
@@ -105,7 +105,7 @@ int base64_dec_len(char * input, int inputLen) {
 		numEq++;
 	}
 
-	return ((6 * inputLen) / 8) - numEq;
+	return (inputLen >> 2) * 3 - numEq;
 }
 
 inline void a3_to_a4(unsigned char * a4, unsigned char * a3) {
